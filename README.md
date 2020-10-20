@@ -18,10 +18,10 @@ Le but est de créer une API REST avec le framework
 - Chaque utilisateur doit pouvoir réaliser des opérations `CRUD` sur
   ses todos.
 
- - `GET /todos`: liste les todos
- - `GET /todo/<uid>`: affiche le todo dont l'uid est `uid`
- - `POST /todos`: ajoute un todo
- - `PATCH /todo/<uid>`: modifie le todo dont l'uid est `uid`
- - `DELETE /todo/<uid>`: supprime le todo dont l'uid est `uid`
+    - `GET /todos`: liste les todos
+    - `GET /todo/<uid>`: affiche le todo dont l'uid est `uid`
+    - `POST /todos`: ajoute un todo
+    - `PATCH /todo/<uid>`: modifie le todo dont l'uid est `uid`
+    - `DELETE /todo/<uid>`: supprime le todo dont l'uid est `uid`
 
 ![ea](./todo.png)
