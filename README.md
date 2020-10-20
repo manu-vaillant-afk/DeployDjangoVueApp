@@ -12,4 +12,7 @@ Le but est de créer une API REST avec le framework
 
 - Une documentation via [Swagger](https://www.django-rest-framework.org/topics/documenting-your-api/#documenting-your-api).
 
+- Utilisation d'un classe User personnalisée pour lui ajouter des
+  attributs, voir [`AbstractUser`](https://docs.djangoproject.com/fr/3.1/topics/auth/customizing/#substituting-a-custom-user-model).
+
 ![ea](./todo.png)
