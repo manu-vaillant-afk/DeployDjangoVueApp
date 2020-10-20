@@ -15,4 +15,13 @@ Le but est de créer une API REST avec le framework
 - Utilisation d'un classe User personnalisée pour lui ajouter des
   attributs, voir [`AbstractUser`](https://docs.djangoproject.com/fr/3.1/topics/auth/customizing/#substituting-a-custom-user-model).
 
+- Chaque utilisateur doit pouvoir réaliser des opérations `CRUD` sur
+  ses todos.
+
+ - `GET /todos`: liste les todos
+ - `GET /todo/<uid>`: affiche le todo dont l'uid est `uid`
+ - `POST /todos`: ajoute un todo
+ - `PATCH /todo/<uid>`: modifie le todo dont l'uid est `uid`
+ - `DELETE /todo/<uid>`: supprime le todo dont l'uid est `uid`
+
 ![ea](./todo.png)
