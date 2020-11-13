@@ -1,5 +1,3 @@
-# f3web-vuejs-todo-manu-vaillant-afk
-f3web-vuejs-todo-manu-vaillant-afk created by GitHub Classroom
 # Todo list - Django Vue
 
 Todo list utilisant une api rest django en backend et vue.js en frontend.
