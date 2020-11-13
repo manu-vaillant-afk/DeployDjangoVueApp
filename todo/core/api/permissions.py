@@ -17,9 +17,10 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
 class IsOwnerOrNothing(permissions.BasePermission):
     """
-    Custom permission to only allow owners of an object to manage it.
+    Custom permissi on to only allow owners of an object to manage it.
     """
 
     def has_object_permission(self, request, view, obj):
-        # Write permissions are only allowed to the owner of the snippet.
+        if not bool(request.user and request.user.is_authenticated):
+            return False
         return obj.owner == request.user

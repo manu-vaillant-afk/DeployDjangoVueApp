@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser
 import uuid
+from django.conf import settings
 
 class MyUser(AbstractUser):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
@@ -13,7 +14,7 @@ class Todo(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     value = models.TextField()
     checked = models.BooleanField(default=False)
-    owner = models.ForeignKey(MyUser, related_name='todos', on_delete=models.CASCADE)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='todos', on_delete=models.CASCADE)
 
     class Meta:
             unique_together = [("value", "owner")]
@@ -24,7 +25,5 @@ class Todo(models.Model):
         else:
             c = "☑"
 
-        return f"{c} {self.value} uid:{self.uid}"
-
-
+        return f"{c} {self.value} uid:{self.uuid}"
 
