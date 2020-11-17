@@ -16,19 +16,12 @@ env\Scripts\activate
 ```python
 pip install -r requirements.txt
 ```
-### 4) Installer d'autre dépendances :
-```python
-pip install django
-pip install django-rest-swagger
-pip install django-cors-headers
-pip install djangorestframework-simplejwt
-```
-### 5) Effectuer les migrations :
+### 4) Effectuer les migrations :
 ```python
 python manage.py makemigrations
 python manage.py migrate
 ```
-### 6) Créer un user :
+### 5) Créer un user :
 ```python
 python manage.py createsuperuser
 ```
