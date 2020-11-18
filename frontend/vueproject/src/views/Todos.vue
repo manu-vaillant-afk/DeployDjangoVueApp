@@ -3,7 +3,7 @@
       <Navbar></Navbar>
       
         <div class="container todos" id="todos">
-            <div class="todoForm center-addTodo">
+            <div class="todoForm center-addTodo my-4">
                 <h2>Ajouter un todo :</h2>
                 <form action="" method="post" @submit.prevent="submitForm">
                     <p v-if="error">
@@ -13,18 +13,33 @@
                     <input class="button" type="submit" value="Ajouter">
                 </form>
             </div>
-            <div class="todo" v-for="(todo, index) in APIData" :key="index" :class="{editing: todo.editing, checked: todo.checked}">
-                <span class="todo-header">
-                    <a href="#" @click.prevent="checked(todo)">
-                        <span v-if="todo.checked">unchecked</span>
-                        <span v-else>checked</span>
+            <div class="todo card" v-for="(todo, index) in APIData" :key="index" :class="{editing: todo.editing, checked: todo.checked}">
+                <div class="card-body py-3 row">
+                    <span class="todo-header ">
+                        <a href="#" @click.prevent="checked(todo)">
+                            <span class="btn btn-danger btn-sm mr-4 ml-2" v-if="todo.checked">
+                                <img src="../assets/icon_uncheck.png" width="15px">
+                            </span>
+                            <span v-else class="btn btn-success btn-sm mr-4 ml-2">
+                                <img src="../assets/icon_check.png" width="15px">
+                            </span>
+                        </a>
+
+                    </span>
+                    <div class="todo-body" @click="edit(todo)">
+                        <div v-if="todo.checked">
+                            <s> {{ todo.value }} </s>
+                        </div>
+                        <div v-else>
+                            {{ todo.value }}
+                        </div>
+                        
+                    </div>
+                    <a class="btn btn-dark btn-sm mx-3 ml-auto" href="#" @click.prevent="del(todo)">
+                            Supprimer
                     </a>
-                    <a href="#" @click.prevent="del(todo)">delete</a>
-                </span>
-                <div class="todo-body" @click="edit(todo)">
-                    {{ todo.value }}
+                    <input class="todo-body" type="text" @keyup.enter="doedit(todo)" v-model="todo.value">
                 </div>
-                <input class="todo-body" type="text" @keyup.enter="doedit(todo)" v-model="todo.value">
             </div>
         </div>
 
@@ -77,7 +92,7 @@
                 );
             },
             del(todo) {
-                this.APIData.splice(this.APIData.indexOf(todo))
+                this.APIData.splice(this.APIData.indexOf(todo), 1)
                 getAPI.delete(/todos/+todo.uuid+'/',
                     {
                         headers: {Authorization: 'Bearer ' + this.$store.state.accessToken}
@@ -130,7 +145,7 @@
 <style lang='scss'>
 $maincolor:#3B3B98;
 $textcolor:#fff;
-$font-family: Nunito Sans;
+$font-family: Helvetica;
 
 .container {
     max-width: 1024px;
@@ -173,15 +188,6 @@ $font-family: Nunito Sans;
 .todo {
     margin-bottom: .5em;
     position: relative;
-    border: 1px solid black;
-    padding: .5em;
-    border-radius: 5px; 
-}
-
-.todo-header {
-    position: absolute;
-    right: 0;
-    top: 0; 
 }
 
 .todo input.todo-body {
@@ -197,7 +203,7 @@ $font-family: Nunito Sans;
 }
 
 .todo.checked {
-    background: rgb(160, 160, 160); 
+    background-color: #c3c3c3d8;
 }
 
 .center-addTodo{

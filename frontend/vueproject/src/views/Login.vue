@@ -44,7 +44,7 @@ export default {
 <style lang="scss">
 $maincolor:#3B3B98;
 $textcolor:#fff;
-$font-family:Nunito Sans;
+$font-family: Helvetica;
 
 .loginpage {
   font-family: $font-family;
