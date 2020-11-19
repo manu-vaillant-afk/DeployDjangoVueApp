@@ -37,6 +37,7 @@ $textcolor:#fff;
     color: $textcolor;
     text-decoration: none;
     margin-left: auto;
+
   }
 }
 </style>f

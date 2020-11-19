@@ -60,7 +60,8 @@ $font-family: Helvetica;
   height: 100vh;
 
   form {
-    width: 40%;
+    margin-left: 20px;
+    margin-right: 20px;
     box-shadow: 1px 0 10px 15px rgba(0, 0, 0, .3);
     padding: 40px;
     background-color: #fff;

@@ -26,7 +26,7 @@
                         </a>
 
                     </span>
-                    <div class="todo-body" @click="edit(todo)">
+                    <div class="todo-body col-5" @click="edit(todo)">
                         <div v-if="todo.checked">
                             <s> {{ todo.value }} </s>
                         </div>
@@ -35,14 +35,13 @@
                         </div>
                         
                     </div>
-                    <a class="btn btn-dark btn-sm mx-3 ml-auto" href="#" @click.prevent="del(todo)">
-                            Supprimer
+                    <input class="todo-body col-5" type="text" @keyup.enter="doedit(todo)" v-model="todo.value">
+                    <a class="btn btn-dark btn-sm mx-3 ml-auto mb-auto" href="#" @click.prevent="del(todo)">
+                        Supprimer
                     </a>
-                    <input class="todo-body" type="text" @keyup.enter="doedit(todo)" v-model="todo.value">
                 </div>
             </div>
         </div>
-
 	</div>
 </template>
 
