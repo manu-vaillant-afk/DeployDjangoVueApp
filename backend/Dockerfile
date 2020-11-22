@@ -8,3 +8,4 @@ RUN pip install -r requirements.txt
 COPY . /backend/
 
 RUN python manage.py migrate
+

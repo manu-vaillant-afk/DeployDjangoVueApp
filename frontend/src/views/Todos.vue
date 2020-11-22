@@ -4,7 +4,7 @@
       
         <div class="container todos" id="todos">
             <div class="todoForm center-addTodo my-4">
-                <h2>Ajouter un todo :</h2>
+                <h2>Ajouter une tâche :</h2>
                 <form action="" method="post" @submit.prevent="submitForm">
                     <p v-if="error">
                         <b>Veuillez remplir le champ !</b>
@@ -17,14 +17,13 @@
                 <div class="card-body py-3 row">
                     <span class="todo-header ">
                         <a href="#" @click.prevent="checked(todo)">
-                            <span class="btn btn-danger btn-sm mr-4 ml-2" v-if="todo.checked">
-                                <img src="../assets/icon_uncheck.png" width="15px">
+                            <span class="checkBox mr-4 ml-2" v-if="todo.checked">
+                                <img class="" src="../assets/icon_check.png" width="15px">
                             </span>
-                            <span v-else class="btn btn-success btn-sm mr-4 ml-2">
-                                <img src="../assets/icon_check.png" width="15px">
+                            <span v-else class="checkBox mr-4 ml-2">
+                                <img class=""  width="15px">
                             </span>
                         </a>
-
                     </span>
                     <div class="todo-body col-5" @click="edit(todo)">
                         <div v-if="todo.checked">
@@ -33,13 +32,13 @@
                         <div v-else>
                             {{ todo.value }}
                         </div>
-                        
                     </div>
                     <input class="todo-body col-5" type="text" @keyup.enter="doedit(todo)" v-model="todo.value">
-                    <a class="btn btn-dark btn-sm mx-3 ml-auto mb-auto" href="#" @click.prevent="del(todo)">
-                        Supprimer
+                    <a class="btn btn-danger  btn-sm mx-3 ml-auto mb-auto" href="#" @click.prevent="del(todo)">
+                        <img class="" src="../assets/icon_delete.png" width="15px">
                     </a>
                 </div>
+            
             </div>
         </div>
 	</div>
@@ -152,6 +151,11 @@ $font-family: Helvetica;
     font-family:  $font-family;
 }
 
+.checkBox{
+    border: 3px solid $maincolor;
+    padding: 5px;
+}
+
 .todoForm{
     margin-bottom: 1em;
     form {
@@ -202,7 +206,8 @@ $font-family: Helvetica;
 }
 
 .todo.checked {
-    background-color: #c3c3c3d8;
+    // background-color: #c3c3c3d8;
+    color: #979797d8
 }
 
 .center-addTodo{
